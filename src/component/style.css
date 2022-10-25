@@ -1,3 +1,25 @@
-.nav-form{
-    margin-right: 100px;
+.cardimg{
+    width: 250px!important;
+    height: 250px;
+}
+.cardtxt{
+    margin-top: 40px;
+}
+.addcartbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -6px;
+}
+
+.addcartbtn{
+    margin-bottom: 12px;
+    color: white;
+}
+.shadowcard{
+    padding: 10px; 
+}
+.shadowcard:hover{
+    border: 1px solid;
+    box-shadow: 5px 10px #888888;
 }
