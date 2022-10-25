@@ -7,21 +7,25 @@ import { fetchAllProducts } from "../reducers/ProductReducer";
 import "../component/style.css"
 
 export default function ProductList() {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
+  
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, []);
+  
   const prodList = useSelector((state) => {
     return state.products.products;
   });
-  console.log("product", prodList);
+ 
   const dataLoading = useSelector((state) => {
     return state.products.loading;
   });
+
   return (
     <>
-   
       <div style={{ marginBottom: "50px" }} className="d-flex flex-wrap">
         {dataLoading ? (
           <h1>Loading....</h1>

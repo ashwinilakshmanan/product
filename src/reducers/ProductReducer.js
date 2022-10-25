@@ -6,6 +6,7 @@ const initialState = {
   selectedProduct: {},
   loading: false,
   errorMessage: undefined,
+  searchedProduct:[],
 };
 
 export const fetchAllProducts = createAsyncThunk(
@@ -31,8 +32,10 @@ const productSlice = createSlice({
     setSelectedProduct: (state, action) => {
       state.selectedProduct = action.payload;
     },
+     
+    
   },
-  extraReducers: (builder) => {
+  extraReducers:(builder) => {
     builder
       .addCase(fetchAllProducts.fulfilled, (state, action) => {
         state.products = action.payload;
