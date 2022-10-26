@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import "../component/style.css";
+import  "../component/style.css";
+import { setSelectedProduct } from "../action/ProductAction";
 
 export default function ProductDetail() {
   const [productDetail, setProductDetail] = useState();

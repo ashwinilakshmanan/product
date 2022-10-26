@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {filterByCategory} from "../action/ProductAction"
+import { filterByCategory } from "../action/ProductAction";
 
 export default function CategoryFiltering() {
-  
   const dispatch = useDispatch();
-  const{productList}=useSelector((state)=>{
+  const { productList } = useSelector((state) => {
     return state.products;
-  })
-  const[filter,setFilter]=useState(productList)
+  });
+  const [filter, setFilter] = useState(productList);
   const onDeptClick = (event) => {
     dispatch(filterByCategory(event));
   };
   return (
     <>
       <div style={{ marginleft: "50px" }}>
-        <b style={{paddingleft:"30px"}}>Category</b>
+        <b style={{ paddingleft: "30px" }}>Category</b>
         <br />
-        <div >
+        <div>
           <button
             className="btn btn-link butn "
             onClick={() => {
@@ -26,8 +25,8 @@ export default function CategoryFiltering() {
           >
             Men's Clothing
           </button>
-          </div>
-          <div>
+        </div>
+        <div>
           <button
             className="btn btn-link butn"
             onClick={() => {
@@ -36,8 +35,8 @@ export default function CategoryFiltering() {
           >
             Women's Clothing
           </button>
-          </div>
-          <div>
+        </div>
+        <div>
           <button
             className="btn btn-link butn"
             onClick={() => {
@@ -46,8 +45,8 @@ export default function CategoryFiltering() {
           >
             Jewelery
           </button>
-          </div>
-          <div>
+        </div>
+        <div>
           <button
             className="btn btn-link butn"
             onClick={() => {
@@ -60,6 +59,4 @@ export default function CategoryFiltering() {
       </div>
     </>
   );
-
- 
 }

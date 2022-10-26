@@ -21,7 +21,6 @@ export const ProductReducer = (state = initialState, action) => {
       return newState;
 
     case SET_PROD_SEARCH_TEXT:
-      
       return {
         ...state,
         searchText: action.payload,

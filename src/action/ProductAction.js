@@ -1,9 +1,13 @@
 import { ActionTypes } from "./actionTypes";
 
-const{SET_PRODUCTS,SET_PROD_SEARCH_TEXT,SELECTED_PRODUCT,CATEGORY_FILTERATION}=ActionTypes
+const {
+  SET_PRODUCTS,
+  SET_PROD_SEARCH_TEXT,
+  SELECTED_PRODUCT,
+  CATEGORY_FILTERATION,
+} = ActionTypes;
 
 export const setProducts = (products) => {
- 
   return {
     type: SET_PRODUCTS,
     payload: products,
@@ -11,7 +15,6 @@ export const setProducts = (products) => {
 };
 
 export const setProdSearchText = (searchText) => {
-
   return {
     type: SET_PROD_SEARCH_TEXT,
     payload: searchText,
@@ -24,9 +27,9 @@ export const setSelectedProduct = (productId) => {
     payload: productId,
   };
 };
-export const filterByCategory=(category)=>{
-  return{
-    type:CATEGORY_FILTERATION,
-    payload:category,
-  }
-}
+export const filterByCategory = (category) => {
+  return {
+    type: CATEGORY_FILTERATION,
+    payload: category,
+  };
+};
