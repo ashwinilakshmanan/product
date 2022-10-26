@@ -15,6 +15,7 @@ export const setProducts = (products) => {
 };
 
 export const setProdSearchText = (searchText) => {
+
   return {
     type: SET_PROD_SEARCH_TEXT,
     payload: searchText,

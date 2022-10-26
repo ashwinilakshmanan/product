@@ -24,6 +24,11 @@
     box-shadow: 10px 15px #888888;
 }
 .butn{
-    text-decoration: none;
-    
+    text-decoration: none;   
+}
+.textbox{
+    width: 500px;
+}
+.text{
+    font-weight: bolder;
 }

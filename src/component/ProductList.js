@@ -27,9 +27,8 @@ export default function ProductList() {
   useEffect(() => {
     if (searchText) {
       const filteredProds = productList?.filter((prod) => {
-        return (
-          prod.title?.toLowerCase().indexOf(searchText?.toLowerCase()) > -1
-        );
+        return prod.title?.toLowerCase().indexOf(searchText?.toLowerCase()) > -1;
+      
       });
       setProductList1(filteredProds);
     }

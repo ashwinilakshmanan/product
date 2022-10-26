@@ -9,7 +9,9 @@ import {setProdSearchText} from "../action/ProductAction"
 
 export default function Header() {
   const dispatch=useDispatch();
+  
   const onSearchTextChange=(event)=>{
+    
     dispatch(setProdSearchText(event.target.value))
 
   }
@@ -17,7 +19,7 @@ export default function Header() {
     <>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#"></Navbar.Brand>
+          <Navbar.Brand href="#" className="text">e-Shop</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -32,13 +34,13 @@ export default function Header() {
             </Nav>
             <Form className="d-flex">
               <Form.Control
-                type="text"
+                type="search"
                 placeholder="Search"
-                className="mx-3 justify-center"
+                className="mx-3 justify-center textbox"
                 aria-label="Search"
-                onChange={()=>onSearchTextChange}
+                onChange={onSearchTextChange}
               />
-              <Button variant="outline-success ">Search</Button>
+              
             </Form>
           </Navbar.Collapse>
         </Container>
