@@ -1,70 +1,46 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { ActionTypes } from "../action/actionTypes";
+
+const {
+  SET_PRODUCTS,
+  SELECTED_PRODUCT,
+  SET_PROD_SEARCH_TEXT,
+  CATEGORY_FILTERATION,
+} = ActionTypes;
 
 const initialState = {
-  products: [],
-  product: [],
-  selectedProduct: {},
-  loading: false,
-  errorMessage: undefined,
-  searchedProduct:[],
+  productList: [],
 };
+export const ProductReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case SET_PRODUCTS:
+      const newState = {
+        ...state,
+        productList: action.payload,
+      };
 
-export const fetchAllProducts = createAsyncThunk(
-  "products/fetAllProducts",
-  async () => {
-    const data = await fetch("https://fakestoreapi.com/products");
-    return data.json();
+      return newState;
+
+    case SET_PROD_SEARCH_TEXT:
+      
+      return {
+        ...state,
+        searchText: action.payload,
+      };
+
+    case SELECTED_PRODUCT:
+      return {
+        ...state,
+        productId: action.payload,
+      };
+
+    case CATEGORY_FILTERATION:
+      return {
+        ...state,
+        category: action.payload,
+      };
+
+    default:
+      return state;
+      break;
   }
-);
-
-export const fetchProductById = createAsyncThunk(
-  "products/fetchProductById",
-  async (productId) => {
-    const data = await fetch(`https://fakestoreapi.com/products/${productId}`);
-    return data.json();
-  }
-);
-
-const productSlice = createSlice({
-  name: "products",
-  initialState: initialState,
-  reducers: {
-    setSelectedProduct: (state, action) => {
-      state.selectedProduct = action.payload;
-    },
-     
-    
-  },
-  extraReducers:(builder) => {
-    builder
-      .addCase(fetchAllProducts.fulfilled, (state, action) => {
-        state.products = action.payload;
-        state.loading = false;
-        state.errorMessage = undefined;
-      })
-      .addCase(fetchProductById.fulfilled, (state, action) => {
-        state.product = action.payload;
-        state.loading = false;
-        state.errorMessage = undefined;
-      })
-      .addCase(fetchAllProducts.pending, (state, action) => {
-        state.loading = true;
-        state.errorMessage = undefined;
-      })
-      .addCase(fetchProductById.pending, (state, action) => {
-        state.loading = true;
-        state.errorMessage = undefined;
-      })
-      .addCase(fetchAllProducts.rejected, (state, action) => {
-        state.loading = false;
-        state.errorMessage = action.payload;
-      })
-      .addCase(fetchProductById.rejected, (state, action) => {
-        state.loading = false;
-        state.errorMessage = action.payload;
-      });
-  },
-});
-
-export const { setSelectedProduct } = productSlice.actions;
-export default productSlice.reducer;
+};

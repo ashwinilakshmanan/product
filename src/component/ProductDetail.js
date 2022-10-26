@@ -3,19 +3,15 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  fetchAllProducts,
-  setSelectedProduct,
-} from "../reducers/ProductReducer";
 import "../component/style.css";
 
 export default function ProductDetail() {
-  const [productDetails, setProductDetails] = useState();
+  const [productDetail, setProductDetail] = useState();
   let params = useParams();
   const dispatch = useDispatch();
 
   const product = useSelector((state) => {
-    return state.products.products;
+    return state.products.productList;
   });
 
   const productId = params.productId;
@@ -24,7 +20,7 @@ export default function ProductDetail() {
     fetch(`https://fakestoreapi.com/products/${productId}`).then(
       async (response) => {
         const data = await response.json();
-        setProductDetails(data);
+        setProductDetail(data);
         dispatch(setSelectedProduct(data));
       }
     );
